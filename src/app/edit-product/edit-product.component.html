@@ -1,0 +1,37 @@
+<div class="container">
+
+
+  <div class="col-md-9 col-sm-6 col-xs-12">
+
+    <div class="panel panel-default">
+      <div class="panel panel-heading">
+        <strong style="text-align: center">  Modifer Produit </strong>
+       </div>
+
+      <div class="panel  panel-body" *ngIf="CurrentProduct">
+        <form  #f="ngForm" (ngSubmit)="onUpdateProduct(f.value)" >
+          <div class="form-group">
+            <label class="control-label">Désignation</label>
+            <input class="form-control" type="text" placeholder="Entrer une Désignation" name="designation" ngModel [(ngModel)]="CurrentProduct.designation" />
+          </div>
+          <div class="form-group">
+            <label class="control-label">Quantite</label>
+            <input class="form-control" type="text"  placeholder="Entrer une Quantité" name="quantite" ngModel [(ngModel)]="CurrentProduct.quantite" />
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">Prix</label>
+            <input class="form-control" type="text" placeholder="Entrer un prix" name="price" ngModel [(ngModel)]="CurrentProduct.price" />
+          </div>
+
+          <button  class="btn btn-default  ">Modifier</button>
+        </form>
+        <div class="alert alert-info" role="alert"  *ngIf="mode==2" data-auto-c="2000" alert-close="">
+          <strong>Operation Reussite:</strong> Information  a été modifier   !.  </div>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="container">
+
+
+<div class="col-md-9 col-sm-6 col-xs-12">
+
+<div class="panel panel-default">
+  <div class="panel panel-heading">
+    Nouveau Produit
+  </div>
+
+  <div class="panel  panel-body" >
+  <form  #f="ngForm" (ngSubmit)="onSaveProduit(f.value)" novalidate>
+    <div class="form-group">
+      <label class="control-label">Désignation</label>
+      <input class="form-control" type="text" required="required" placeholder="Entrer une Désignation" name="designation" ngModel/>
+    </div>
+    <div class="form-group">
+      <label class="control-label">Quantite</label>
+      <input class="form-control" type="number" required="required" placeholder="Entrer une Quantité" name="quantite" ngModel/>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">Prix</label>
+      <input class="form-control" type="number" required="required" placeholder="Entrer un prix" name="prix" ngModel/>
+    </div>
+
+    <button  class="btn btn-primary  ">Ajouter</button>
+  </form>
+    <div class="alert alert-success" role="alert"  *ngIf="mode==2" data-auto-c="2000" alert-close="">
+     <strong>Operation Reussite:</strong> Produit Ajouté avec succée  !.  </div>
+  </div>
+
+
+
+
+  </div>
+
+</div>
+</div>

@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="panel panel-default ">
+    <div class="panel-heading">
+      Liste des produits
+    </div>
+    <div class="panel-body">
+      <form #f ="ngForm" (ngSubmit)="onChercher(f.value)">
+<div class="form-group">
+  <label>Mot Clé</label>
+  <input  type="text" name="motcle" ngModel/>
+  <button type="submit" class="btn btn-default glyphicon glyphicon-search"> Chercher</button>
+</div>
+
+      </form>
+      <button class="btn btn-info"  (click)="onGetProducts()"> Produits</button>
+<table *ngIf="produits" class="table table-striped">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Designation</th>
+    <th>Prix</th>
+    <th>Quantite</th>
+  </tr>
+
+  </thead>
+  <tbody>
+
+  <tr *ngFor="let p of produits._embedded.produits">
+    <td> {{p.id}}</td>
+
+    <td> {{p.designation}}</td>
+    <td> {{p.price | number:'0.00'}}</td>
+    <td> {{p.quantite}}</td>
+    <td > <a class="btn btn-danger" (click)="onDeleteProduct(p)" >SUPPRIMER</a></td>
+    <td> <a class="btn btn-success" (click)="onEditProduct(p)">MODIFIER</a></td>
+
+  </tr>
+</tbody>
+</table>
+<ul  *ngIf="pages" class="nav nav-pills">
+  <li class="clickable" [ngClass]="i==currentPage?'active':''" *ngFor="let p of pages;let i=index">
+<a   (click)="onPageProduct(i)">{{i}}</a>
+
+
+  </li>
+
+
+</ul>
+
+
+  </div>
+    <div class="alert alert-danger" role="alert" data-auto-dismiss="10000" *ngIf="mode==2">
+      <strong>Operation Reussite:</strong> Produit supprimée avec succée  !.  </div>
+  </div>
+</div>
